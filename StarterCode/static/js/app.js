@@ -2,10 +2,13 @@ function dropmenu(){
     d3.json("samples.json").then(function(data){
         console.log(data);
     var drop = d3.select("#selDataset");
+    data.names.forEach(function(name){
+        drop.append("options")
+        .text(name)
+        .property("value");
     })
-    
+    })  
 }
-
  function plots(){
     d3.json("samples.json").then(function(data){
     console.log(data);
@@ -46,11 +49,8 @@ function dropmenu(){
              width:800
          };
         Plotly.newPlot('bubble', trace2, layout2);
-
-      
 })
       
-
 function meta(){
     var meta = data.metadata;
     var demographics = d3.select("#sample-metadata");
