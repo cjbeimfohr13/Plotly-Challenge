@@ -1,6 +1,13 @@
+function dropmenu(){
+    d3.json("samples.json").then(function(data){
+        console.log(data);
+    var drop = d3.select("#selDataset");
+    })
+    
+}
 
-
-d3.json("samples.json").then(function(data){
+ function plots(){
+    d3.json("samples.json").then(function(data){
     console.log(data);
 
     var otuId  = data.samples[0].otu_ids.slice(0,10);
@@ -32,16 +39,21 @@ d3.json("samples.json").then(function(data){
         mode: "markers",
         marker:{size:value,color:otu},
         text: label
-
-         };
+        };
     
          var layout2 = {
              height:500,
              width:800
-         }
+         };
         Plotly.newPlot('bubble', trace2, layout2);
 
+      
 })
       
-// }
 
+function meta(){
+    var meta = data.metadata;
+    var demographics = d3.select("#sample-metadata");
+    // var filterMeta = data.metadata.filter(metad=>metad.id)[0];
+}
+}
